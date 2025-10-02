@@ -1,10 +1,24 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { CustomerModule } from './customer/customer.module';
+import { EmployeeModule } from './employee/employee.module';
+import { ProductModule } from './product/product.module';
+import { OrderModule } from './order/order.module';
+import { PaymentModule } from './payment/payment.module';
+import { CartModule } from './cart/cart.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'database.sqlite',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+    }),
+    CustomerModule, EmployeeModule, ProductModule, OrderModule, PaymentModule, CartModule],
+  controllers: [],
+  providers: [],
 })
-export class AppModule {}
+export class AppModule { }
