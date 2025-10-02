@@ -216,3 +216,51 @@ Content-Type: application/json
 {
     "estado": "Entregado"
 }
+
+### Payment endpoints
+
+### Create a new payment
+POST {{host}}/payment
+Content-Type: application/json
+
+{
+    "id_pedido": 1,
+    "metodo": "tarjeta",
+    "monto": 15.00,
+    "estado": "Pendiente"
+}
+
+### Get all payments
+GET {{host}}/payment
+Accept: application/json
+
+### Get payment by id
+GET {{host}}/payment/1
+Accept: application/json
+
+### Update payment by id
+PATCH {{host}}/payment/1
+Content-Type: application/json
+
+{
+    "estado": "Completado"
+}
+
+### Delete payment by id
+DELETE {{host}}/payment/1
+Accept: application/json
+
+### Process payment (simulated)
+POST {{host}}/payment/process
+Content-Type: application/json
+
+{
+    "id_pedido": 1,
+    "metodo": "tarjeta",
+    "monto": 15.00,
+    "estado": "Procesando"
+}
+
+### Get payments by order id
+GET {{host}}/payment/order/1
+Accept: application/json

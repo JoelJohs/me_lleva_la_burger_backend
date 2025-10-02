@@ -58,13 +58,13 @@ _Nota: se usa `PATCH` en lugar de `PUT` para actualizaciones parciales (corregir
 
 ### 💳 Payment
 
-- [ ] `POST /payments`
-- [ ] `GET /payments`
-- [ ] `GET /payments/:id`
-- [ ] `PATCH /payments/:id`
-- [ ] `DELETE /payments/:id`
-- [ ] `POST /payments/process`
-- [ ] `GET /payments/order/:orderId`
+- [x] `POST /payments`
+- [x] `GET /payments`
+- [x] `GET /payments/:id`
+- [x] `PATCH /payments/:id`
+- [x] `DELETE /payments/:id`
+- [x] `POST /payments/process`
+- [x] `GET /payments/order/:orderId`
 
 ### 🌱 Seed
 
