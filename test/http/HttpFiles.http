@@ -28,7 +28,7 @@ PATCH {{host}}/customer/1
 Content-Type: application/json
 
 {
-    "telefono_cliente": "0999999998"
+    "telefono_cliente": "0999999888"
 }
 
 ### Delete customer by id
@@ -226,7 +226,7 @@ Content-Type: application/json
 {
     "id_pedido": 1,
     "metodo": "tarjeta",
-    "monto": 15.00,
+    "monto": 15,
     "estado": "Pendiente"
 }
 

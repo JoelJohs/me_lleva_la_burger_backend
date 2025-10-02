@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsNumber, IsString, IsNotEmpty, IsDecimal } from 'class-validator';
+import { IsNumber, IsString, IsNotEmpty } from 'class-validator';
 
 export class CreatePaymentDto {
     @IsNumber()
@@ -10,7 +10,7 @@ export class CreatePaymentDto {
     @IsNotEmpty()
     metodo: string;
 
-    @IsDecimal()
+    @IsNumber()
     @IsNotEmpty()
     monto: number;
 

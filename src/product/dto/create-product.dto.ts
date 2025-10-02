@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsString, IsNotEmpty, IsDecimal, IsOptional } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
 
 export class CreateProductDto {
     @IsString()
@@ -14,7 +14,7 @@ export class CreateProductDto {
     @IsNotEmpty()
     ingredientes: string;
 
-    @IsDecimal()
+    @IsNumber()
     @IsNotEmpty()
     precio: number;
 
