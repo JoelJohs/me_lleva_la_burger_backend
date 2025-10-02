@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { IsString, IsNotEmpty, IsDecimal, IsOptional } from 'class-validator';
 
 export class CreateProductDto {

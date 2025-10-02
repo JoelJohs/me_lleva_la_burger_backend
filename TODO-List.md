@@ -1,6 +1,6 @@
 ## ✅ TODO List
 
-*Nota: se usa `PATCH` en lugar de `PUT` para actualizaciones parciales (corregir solo un dato). Los endpoints de Customer y Employee ya están terminados.*
+_Nota: se usa `PATCH` en lugar de `PUT` para actualizaciones parciales (corregir solo un dato). Los endpoints de Customer y Employee ya están terminados._
 
 ### 🔐 Autenticación
 
@@ -34,27 +34,27 @@
 
 ### 🛒 Cart
 
-- [ ] `POST /carts`
-- [ ] `GET /carts`
-- [ ] `GET /carts/:id`
-- [ ] `PATCH /carts/:id`
-- [ ] `DELETE /carts/:id`
-- [ ] `POST /carts/:id/add`
-- [ ] `POST /carts/:id/remove`
-- [ ] `POST /carts/:id/clear`
-- [ ] `GET /carts/customer/:customerId`
+- [x] `POST /carts`
+- [x] `GET /carts`
+- [x] `GET /carts/:id`
+- [x] `PATCH /carts/:id`
+- [x] `DELETE /carts/:id`
+- [x] `POST /carts/:id/add`
+- [x] `POST /carts/:id/remove`
+- [x] `POST /carts/:id/clear`
+- [x] `GET /carts/customer/:customerId`
 
 ### 📦 Order
 
-- [ ] `POST /orders`
-- [ ] `GET /orders`
-- [ ] `GET /orders/:id`
-- [ ] `PATCH /orders/:id`
-- [ ] `DELETE /orders/:id`
-- [ ] `POST /orders/from-cart/:cartId`
-- [ ] `GET /orders/customer/:customerId`
-- [ ] `GET /orders/employee/:employeeId`
-- [ ] `PATCH /orders/:id/status`
+- [x] `POST /orders`
+- [x] `GET /orders`
+- [x] `GET /orders/:id`
+- [x] `PATCH /orders/:id`
+- [x] `DELETE /orders/:id`
+- [x] `POST /orders/from-cart/:cartId`
+- [x] `GET /orders/customer/:customerId`
+- [x] `GET /orders/employee/:employeeId`
+- [x] `PATCH /orders/:id/status`
 
 ### 💳 Payment
 

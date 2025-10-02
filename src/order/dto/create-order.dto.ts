@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { IsNumber, IsString, IsNotEmpty, IsDecimal } from 'class-validator';
 
 export class CreateOrderDto {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn } from 'typeorm';
 import { Order } from '../../order/entities/order.entity';
 import { Customer } from '../../customer/entities/customer.entity';
