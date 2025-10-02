@@ -1,0 +1,69 @@
+@host = http://localhost:3000
+
+
+### Create a new customer
+POST {{host}}/customer
+Content-Type: application/json
+
+{
+    "nombre_cliente": "Juan",
+    "apellido_cliente": "Pérez",
+    "correo_cliente": "juan.perez@example.com",
+    "contrasena_cliente": "secret123",
+    "telefono_cliente": "0987654321",
+    "direccion": "Av. Siempre Viva 742",
+    "estado_cliente": "Activo"
+}
+
+### Get all customers
+GET {{host}}/customer
+Accept: application/json
+
+### Get customer by id
+GET {{host}}/customer/1
+Accept: application/json
+
+### Update customer by id
+PATCH {{host}}/customer/1
+Content-Type: application/json
+
+{
+    "telefono_cliente": "0999999998"
+}
+
+### Delete customer by id
+DELETE {{host}}/customer/1
+Accept: application/json
+
+### Create a new employee
+POST {{host}}/employee
+Content-Type: application/json
+
+{
+    "nombre_empleado": "Carlos",
+    "apellido_empleado": "Lopez",
+    "correo_empleado": "carlos.lopez@example.com",
+    "contrasena_empleado": "password123",
+    "telefono_empleado": "1234567890",
+    "cargo": "Desarrollador",
+    "estado_empleado": "Activo"
+}
+
+### Get all employees
+GET {{host}}/employee
+Accept: application/json
+
+### Get employee by id
+GET {{host}}/employee/1
+Accept: application/json
+
+### Update employee by id
+PATCH {{host}}/employee/1
+Content-Type: application/json
+{
+    "telefono_empleado": "0987654321"
+}
+
+### Delete employee by id
+DELETE {{host}}/employee/1
+Accept: application/json
