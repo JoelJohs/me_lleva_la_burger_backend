@@ -67,3 +67,43 @@ Content-Type: application/json
 ### Delete employee by id
 DELETE {{host}}/employee/1
 Accept: application/json
+
+### Product endpoints
+
+### Create a new product
+POST {{host}}/products
+Content-Type: application/json
+
+{
+    "nombre_producto": "Hamburguesa Clásica",
+    "descripcion": "Carne 100% res, pan artesanal, lechuga, tomate",
+    "ingredientes": "Carne, pan, lechuga, tomate, aderezo",
+    "precio": 7.50,
+    "foto": "https://example.com/img/hamburguesa.jpg",
+    "disponibilidad": "disponible"
+}
+
+### Get all products
+GET {{host}}/products
+Accept: application/json
+
+### Get available products
+GET {{host}}/products/available
+Accept: application/json
+
+### Get product by id
+GET {{host}}/products/1
+Accept: application/json
+
+### Update product by id
+PATCH {{host}}/products/1
+Content-Type: application/json
+
+{
+    "precio": 8.00,
+    "disponibilidad": "no disponible"
+}
+
+### Delete product by id
+DELETE {{host}}/products/1
+Accept: application/json

@@ -25,12 +25,12 @@
 
 ### 🍔 Product
 
-- [ ] `POST /products`
-- [ ] `GET /products`
-- [ ] `GET /products/:id`
-- [ ] `PATCH /products/:id`
-- [ ] `DELETE /products/:id`
-- [ ] `GET /products/available`
+- [x] `POST /products`
+- [x] `GET /products`
+- [x] `GET /products/:id`
+- [x] `PATCH /products/:id`
+- [x] `DELETE /products/:id`
+- [x] `GET /products/available`
 
 ### 🛒 Cart
 

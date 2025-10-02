@@ -1,40 +1,52 @@
 /* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
-import { Employee } from 'src/types';
+import { Employee } from './entities/employee.entity';
 
 @Injectable()
 export class EmployeeService {
-  private employees: Employee[] = [];
-  private nextId = 1;
+  constructor(
+    @InjectRepository(Employee)
+    private readonly employeeRepository: Repository<Employee>,
+  ) { }
 
-  create(createEmployeeDto: CreateEmployeeDto): Employee {
-    const employee: Employee = { id: this.nextId++, ...createEmployeeDto } as Employee;
-    this.employees.push(employee);
-    return employee;
+  async create(createEmployeeDto: CreateEmployeeDto): Promise<Employee> {
+    const hashedPassword = await bcrypt.hash(createEmployeeDto.contrasena_empleado, 10);
+    const employee = this.employeeRepository.create({
+      ...createEmployeeDto,
+      contrasena_empleado: hashedPassword,
+    } as Partial<Employee>);
+    return this.employeeRepository.save(employee);
   }
 
-  findAll(): Employee[] {
-    return this.employees;
+  async findAll(): Promise<Employee[]> {
+    return this.employeeRepository.find();
   }
 
-  findOne(id: number): Employee {
-    const employee = this.employees.find(e => e.id === id);
+  async findOne(id: number): Promise<Employee> {
+    const employee = await this.employeeRepository.findOneBy({ id_empleado: id });
     if (!employee) throw new NotFoundException(`Employee with ID ${id} not found`);
     return employee;
   }
 
-  update(id: number, updateEmployeeDto: UpdateEmployeeDto): Employee {
-    const employee = this.findOne(id);
+  async update(id: number, updateEmployeeDto: UpdateEmployeeDto): Promise<Employee> {
+    const employee = await this.findOne(id);
+
+    if (updateEmployeeDto.contrasena_empleado) {
+      updateEmployeeDto.contrasena_empleado = await bcrypt.hash(updateEmployeeDto.contrasena_empleado, 10);
+    }
+
     Object.assign(employee, updateEmployeeDto);
-    return employee;
+    return this.employeeRepository.save(employee);
   }
 
-  remove(id: number): { message: string; employee?: Employee } {
-    const index = this.employees.findIndex(e => e.id === id);
-    if (index === -1) throw new NotFoundException(`Employee with ID ${id} not found`);
-    const [removed] = this.employees.splice(index, 1);
-    return { message: `Employee with ID ${id} removed`, employee: removed };
+  async remove(id: number): Promise<{ message: string; employee?: Employee }> {
+    const employee = await this.findOne(id);
+    await this.employeeRepository.remove(employee);
+    return { message: `Employee with ID ${id} removed`, employee };
   }
 }
