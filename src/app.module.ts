@@ -6,6 +6,7 @@ import { ProductModule } from './product/product.module';
 import { OrderModule } from './order/order.module';
 import { PaymentModule } from './payment/payment.module';
 import { CartModule } from './cart/cart.module';
+import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 
@@ -17,7 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    CustomerModule, EmployeeModule, ProductModule, OrderModule, PaymentModule, CartModule],
+    CustomerModule, EmployeeModule, ProductModule, OrderModule, PaymentModule, CartModule, AuthModule],
   controllers: [],
   providers: [],
 })

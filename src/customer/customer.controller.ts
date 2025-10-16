@@ -1,9 +1,12 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { GetUser } from '../auth/decorators/get-user.decorator';
+import { AuthUser } from '../types';
 
 @ApiTags('Clientes')
 @Controller('customer')
@@ -20,6 +23,14 @@ export class CustomerController {
   @ApiOperation({ summary: 'Obtener todos los clientes' })
   findAll() {
     return this.customerService.findAll();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Get('perfil')
+  @ApiOperation({ summary: 'Obtener perfil del cliente autenticado' })
+  getPerfil(@GetUser() user: AuthUser) {
+    return this.customerService.findOne(user.id);
   }
 
   @Get(':id')
