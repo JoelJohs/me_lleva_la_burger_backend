@@ -6,12 +6,12 @@ POST {{host}}/customer
 Content-Type: application/json
 
 {
-    "nombre_cliente": "Juan",
-    "apellido_cliente": "Pérez",
-    "correo_cliente": "juan.perez@example.com",
+    "nombre_cliente": "Kevin",
+    "apellido_cliente": "Mendez",
+    "correo_cliente": "Kevin.mendez@example.com",
     "contrasena_cliente": "secret123",
     "telefono_cliente": "0987654321",
-    "direccion": "Av. Siempre Viva 742",
+    "direccion": "Lucio Cabañas",
     "estado_cliente": "Activo"
 }
 
@@ -20,15 +20,15 @@ GET {{host}}/customer
 Accept: application/json
 
 ### Get customer by id
-GET {{host}}/customer/1
+GET {{host}}/customer/2
 Accept: application/json
 
 ### Update customer by id
-PATCH {{host}}/customer/1
+PATCH {{host}}/customer/2
 Content-Type: application/json
 
 {
-    "telefono_cliente": "0999999888"
+    "telefono_cliente": "4387654321"
 }
 
 ### Delete customer by id
@@ -40,12 +40,12 @@ POST {{host}}/employee
 Content-Type: application/json
 
 {
-    "nombre_empleado": "Carlos",
-    "apellido_empleado": "Lopez",
-    "correo_empleado": "carlos.lopez@example.com",
+    "nombre_empleado": "Joel",
+    "apellido_empleado": "Hernandez",
+    "correo_empleado": "joel.hernandez@example.com",
     "contrasena_empleado": "password123",
-    "telefono_empleado": "1234567890",
-    "cargo": "Desarrollador",
+    "telefono_empleado": "4381004177",
+    "cargo": "Lava platos",
     "estado_empleado": "Activo"
 }
 
@@ -61,7 +61,7 @@ Accept: application/json
 PATCH {{host}}/employee/1
 Content-Type: application/json
 {
-    "telefono_empleado": "0987654321"
+    "telefono_empleado": "0000000000"
 }
 
 ### Delete employee by id
