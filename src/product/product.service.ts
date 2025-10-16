@@ -29,7 +29,7 @@ export class ProductService {
   }
 
   async findAvailable(): Promise<Product[]> {
-    // consider common truthful availability values in different languages/formats
+
     const truths = ['disponible', 'available', 'true', '1', 'si', 'sí', 'yes'];
     return this.productRepository
       .createQueryBuilder('product')

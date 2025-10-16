@@ -71,7 +71,7 @@ export class OrderService {
     savedOrder.total = Number(total.toFixed(2));
     await this.orderRepository.save(savedOrder);
 
-    // Optionally clear cart
+
     await this.cartProductRepository.delete({ id_carrito: cartId });
 
     return this.findOne(savedOrder.id_pedido);

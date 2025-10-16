@@ -40,7 +40,7 @@ export class PaymentService {
     return { message: `Payment with ID ${id} removed`, payment };
   }
 
-  // Simulate a payment processing flow
+
   async process(createPaymentDto: CreatePaymentDto): Promise<{ success: boolean; payment?: Payment }> {
     // In real system: call a payment gateway, handle webhooks, etc.
     const payment = await this.create(createPaymentDto);

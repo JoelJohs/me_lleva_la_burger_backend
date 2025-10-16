@@ -51,7 +51,6 @@ export class CartService {
     const product = await this.productRepository.findOneBy({ id_producto: addProductDto.id_producto });
     if (!product) throw new NotFoundException(`Product with ID ${addProductDto.id_producto} not found`);
 
-    // check if exists in cart
     let cartProduct = await this.cartProductRepository.findOne({ where: { id_carrito: id, id_producto: addProductDto.id_producto } });
     if (cartProduct) {
       cartProduct.cantidad += addProductDto.cantidad;
