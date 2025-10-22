@@ -1,20 +1,5 @@
 @host = http://localhost:3000
 
-
-### Create a new customer
-POST {{host}}/customer
-Content-Type: application/json
-
-{
-    "nombre_cliente": "Kevin",
-    "apellido_cliente": "Mendez",
-    "correo_cliente": "Kevin.mendez@example.com",
-    "contrasena_cliente": "secret123",
-    "telefono_cliente": "0987654321",
-    "direccion": "Lucio Cabañas",
-    "estado_cliente": "Activo"
-}
-
 ### Get all customers
 GET {{host}}/customer
 Accept: application/json
@@ -34,20 +19,6 @@ Content-Type: application/json
 ### Delete customer by id
 DELETE {{host}}/customer/1
 Accept: application/json
-
-### Create a new employee
-POST {{host}}/employee
-Content-Type: application/json
-
-{
-    "nombre_empleado": "Joel",
-    "apellido_empleado": "Hernandez",
-    "correo_empleado": "joel.hernandez@example.com",
-    "contrasena_empleado": "password123",
-    "telefono_empleado": "4381004177",
-    "cargo": "Lava platos",
-    "estado_empleado": "Activo"
-}
 
 ### Get all employees
 GET {{host}}/employee
@@ -264,3 +235,58 @@ Content-Type: application/json
 ### Get payments by order id
 GET {{host}}/payment/order/1
 Accept: application/json
+
+
+###
+# @name registerCustomer
+# @description Registrar un nuevo cliente
+POST http://localhost:3000/customer
+Content-Type: application/json
+
+{
+    "nombre_cliente": "Juan",
+    "apellido_cliente": "Pérez",
+    "correo_cliente": "juan@ejemplo.com",
+    "contrasena_cliente": "password123",
+    "telefono_cliente": "5551234567",
+    "direccion": "Calle Principal 123",
+    "estado_cliente": "activo"
+}
+
+###
+# @name loginCustomer
+# @description Inicia sesión como cliente
+POST http://localhost:3000/auth/login/customer
+Content-Type: application/json
+
+{
+    "correo_cliente": "juan@ejemplo.com",
+    "contrasena_cliente": "password123"
+}
+
+###
+# @name registerEmployee
+# @description Registrar un nuevo empleado
+POST http://localhost:3000/employee
+Content-Type: application/json
+
+{
+    "nombre_empleado": "Carlos",
+    "apellido_empleado": "López",
+    "correo_empleado": "carlos@ejemplo.com",
+    "contrasena_empleado": "password123",
+    "telefono_empleado": "5559876543",
+    "cargo": "Cajero",
+    "estado_empleado": "activo"
+}
+
+###
+# @name loginEmployee
+# @description Inicia sesión como empleado
+POST http://localhost:3000/auth/login/employee
+Content-Type: application/json
+
+{
+    "correo_empleado": "carlos@ejemplo.com",
+    "contrasena_empleado": "password123"
+}
