@@ -17,8 +17,8 @@ async function bootstrap() {
   }));
 
   const config = new DocumentBuilder()
-    .setTitle('BurguerExpress API')
-    .setDescription('API para gestión de pedidos de hamburguesas')
+    .setTitle('Documentación de la API de BurguerExpress')
+    .setDescription('Esta API permite gestionar todas las operaciones del sistema de pedidos de hamburguesas de BurguerExpress. Incluye la administración de productos, clientes, empleados, carritos de compras, pedidos y pagos. La documentación proporciona una descripción detallada de cada endpoint, los parámetros requeridos y opcionales, así como los códigos de respuesta y los esquemas de datos para facilitar la integración y el desarrollo.')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

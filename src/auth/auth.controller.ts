@@ -12,17 +12,23 @@ export class AuthController {
     constructor(private readonly authService: AuthService) { }
 
     @Post('login/customer')
-    @ApiOperation({ summary: 'Login de cliente' })
-    @ApiResponse({ status: 200, description: 'Login exitoso' })
-    @ApiResponse({ status: 401, description: 'Credenciales inválidas' })
+    @ApiOperation({ 
+        summary: 'Iniciar sesión como cliente',
+        description: 'Permite a un cliente iniciar sesión proporcionando su correo electrónico y contraseña. Devuelve un token de acceso si las credenciales son correctas.'
+    })
+    @ApiResponse({ status: 200, description: 'Inicio de sesión exitoso. Devuelve un token de acceso.' })
+    @ApiResponse({ status: 401, description: 'Credenciales inválidas. El correo electrónico o la contraseña son incorrectos.' })
     loginCustomer(@Body() loginDto: LoginCustomerDto): Promise<LoginResponse> {
         return this.authService.loginCustomer(loginDto);
     }
 
     @Post('login/employee')
-    @ApiOperation({ summary: 'Login de empleado' })
-    @ApiResponse({ status: 200, description: 'Login exitoso' })
-    @ApiResponse({ status: 401, description: 'Credenciales inválidas' })
+    @ApiOperation({ 
+        summary: 'Iniciar sesión como empleado',
+        description: 'Permite a un empleado iniciar sesión proporcionando su correo electrónico y contraseña. Devuelve un token de acceso si las credenciales son correctas.'
+    })
+    @ApiResponse({ status: 200, description: 'Inicio de sesión exitoso. Devuelve un token de acceso.' })
+    @ApiResponse({ status: 401, description: 'Credenciales inválidas. El correo electrónico o la contraseña son incorrectos.' })
     loginEmployee(@Body() loginDto: LoginEmployeeDto): Promise<LoginResponse> {
         return this.authService.loginEmployee(loginDto);
     }

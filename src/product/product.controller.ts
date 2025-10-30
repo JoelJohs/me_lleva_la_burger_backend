@@ -11,37 +11,55 @@ export class ProductController {
   constructor(private readonly productService: ProductService) { }
 
   @Post()
-  @ApiOperation({ summary: 'Crear producto' })
+  @ApiOperation({ 
+    summary: 'Crear un nuevo producto',
+    description: 'Permite agregar un nuevo producto al catálogo de la tienda. Se debe especificar el nombre, precio, categoría y otros detalles del producto.'
+  })
   create(@Body() createProductDto: CreateProductDto) {
     return this.productService.create(createProductDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Obtener todos los productos' })
+  @ApiOperation({ 
+    summary: 'Obtener todos los productos',
+    description: 'Devuelve una lista completa de todos los productos registrados en el catálogo, sin importar su disponibilidad.'
+  })
   findAll() {
     return this.productService.findAll();
   }
 
   @Get('available')
-  @ApiOperation({ summary: 'Obtener productos disponibles' })
+  @ApiOperation({ 
+    summary: 'Obtener productos disponibles',
+    description: 'Devuelve una lista de los productos que están actualmente disponibles para la venta (en stock).'
+  })
   findAvailable() {
     return this.productService.findAvailable();
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obtener producto por ID' })
+  @ApiOperation({ 
+    summary: 'Obtener un producto por su ID',
+    description: 'Busca y devuelve la información de un producto específico utilizando su ID único. Ideal para ver los detalles de un producto.'
+  })
   findOne(@Param('id') id: string) {
     return this.productService.findOne(+id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Actualizar producto' })
+  @ApiOperation({ 
+    summary: 'Actualizar un producto',
+    description: 'Permite actualizar la información de un producto existente, como su precio, descripción o disponibilidad. Requiere el ID del producto.'
+  })
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
     return this.productService.update(+id, updateProductDto);
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar producto' })
+  @ApiOperation({ 
+    summary: 'Eliminar un producto',
+    description: 'Elimina un producto del catálogo utilizando su ID. Esta acción es permanente y debe ser usada con precaución.'
+  })
   remove(@Param('id') id: string) {
     return this.productService.remove(+id);
   }
